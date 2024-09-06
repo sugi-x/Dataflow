@@ -24,23 +24,23 @@ resource "random_id" "random_suffix" {
 }
 
 resource "google_dataflow_job" "dataflow_job" {
-  project                = var.project_id
-  region                 = var.region
-  zone                   = var.zone
-  name                   = "dataflow-terraform-1"
-  on_delete              = "cancel"
-  max_workers            = 1
-  template_gcs_path      = var.dataflow_template_source
-  temp_gcs_location      = var.gcs_bucket_temp
+  project           = var.project_id
+  region            = var.region
+  zone              = var.zone
+  name              = "dataflow-terraform-1"
+  on_delete         = "cancel"
+  max_workers       = 1
+  template_gcs_path = var.dataflow_template_source
+  temp_gcs_location = var.gcs_bucket_temp
   //service_account_email  = var.service_account_email
-  network                = var.vpc_network
-  subnetwork             = var.subnet
-  machine_type           = "n1-standard-1"
+  network      = var.vpc_network
+  subnetwork   = var.subnet
+  machine_type = "n1-standard-1"
   //ip_configuration       = var.ip_configuration
   //additional_experiments = var.additional_experiments
   //kms_key_name           = var.kms_key_name
   //labels                 = var.labels
-  parameters             = {
+  parameters = {
     inputFile = "gs://dataflow-samples/shakespeare/kinglear.txt"
     output    = "gs://sugi-df-output"
   }
