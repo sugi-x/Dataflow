@@ -27,7 +27,7 @@ resource "google_dataflow_job" "dataflow_job" {
   project           = var.project_id
   region            = var.region
   zone              = var.zone
-  name              = "dataflow-terraform-1"
+  name              = "dataflow-gitaction-1"
   on_delete         = "cancel"
   max_workers       = 1
   template_gcs_path = var.dataflow_template_source
